@@ -1,0 +1,37 @@
+<p mat-dialog-title>Add Campaign</p>
+<div mat-dialog-content>
+    <form [formGroup]="campaignForm">
+        <mat-form-field appearance="legacy">
+            <mat-label>Campaign name</mat-label>
+            <input formControlName="campaignName" matInput placeholder="Name">
+        </mat-form-field>
+        Keywords
+        <mat-form-field appearance="legacy">
+            <mat-label>Bid amount (dolars)</mat-label>
+            <input formControlName="bidAmount" matInput type="number" placeholder="Name">
+        </mat-form-field>
+        Campaign fund
+        <label for=""><h4>Status</h4></label>
+        <mat-radio-group formControlName="status" class="radio-group">
+            <mat-radio-button *ngFor="let list of BoolList" [value]="list" class="radio-button">
+                {{list}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field appearance="legacy">
+            <mat-label>Town</mat-label>
+            <mat-select formControlName="campaignName" placeholder="Town">
+                <mat-option value="">Cracow</mat-option>
+                <mat-option value="">Warsaw</mat-option>
+                <mat-option value="">Wroclaw</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>Radius (in kilometres)</mat-label>
+            <input formControlName="bidAmount" matInput type="number" placeholder="Name">
+        </mat-form-field>
+</form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warm" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" class="save-button" (click)="addCampaign()">Save</button>
+</div>
