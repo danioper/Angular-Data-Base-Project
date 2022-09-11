@@ -15,14 +15,11 @@
   <body>
     <header>
       <div class="header-left-section">
+        <a href="/src/app/app.component.html">
         <img class="corner-logo" src="../assets/images/logo2.png" alt="logo">
+        </a>
       </div>
       <div class="header-right-section">
-        <ul class="header-right-content">
-          <li><a href="./app.component.html" class="header-buttons">Home</a></li>
-          <li><a class="header-buttons" href="">About</a></li>
-          <li><a class="header-buttons" href="">Contact</a></li>
-        </ul>
       </div>
     </header>
     <div class="transition-fade" id="swup">
@@ -30,7 +27,7 @@
       </router-outlet>
         <div class="button-wrapper">
           <button (click)="disable()" (click)="goToPage('CRUD')" id="crud-button" class="crud-button">
-            Try our organizer by yoursef FOR FREE
+            Try our organizer by yourself FOR FREE
           </button>
         </div>
     </div>

@@ -57,3 +57,20 @@
     50%{width: 165px; left: 0; background: rgba(209,194,31,0.5);}
     100%{width: 165px; left: 552px; background: rgba(209,194,31,1);}
 }
+
+@media (max-width: 1390px){
+    .button-wrapper{
+        font-size: 5em;
+    }
+    @keyframes ball-move{
+        0%{width: 140px; left: 178px; background: rgba(209,194,31,0.5);}
+        50%{width: 140px; left: 0; background: rgba(209,194,31,1);}
+        100%{width: 100%; left: 0; background: rgba(209,194,31,1);}
+    }
+    
+    @keyframes ball-move-off{
+        0%{width: 100%; left: 0; background: rgba(209,194,31,0.5);}
+        50%{width: 140px; left: 0; background: rgba(209,194,31,0.5);}
+        100%{width: 140px; left: 178px; background: rgba(209,194,31,1);}
+    }
+  }

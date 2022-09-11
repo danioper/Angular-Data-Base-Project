@@ -12,13 +12,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
+
 export class DialogComponent implements OnInit {
   
   BoolList = ["On", "Off"] /* property*/ 
   campaignForm !: FormGroup;
   dialogBtn : string = "Save"
   options: string[] = keywordProducts;
-  
+  keywordsContainer : string = "`";
+  set keywordsSetter(value: string){
+    this.keywordsContainer = value;
+  }
+
   filteredOptions: Observable<string[]> | undefined;
   constructor(private formBuilder: FormBuilder,
               private api:ApiService,
@@ -29,14 +34,15 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
     this.campaignForm = this.formBuilder.group({
       campaignName : ['',Validators.required],
-      keywords : ['',Validators.required],
+      keywords : [this.keywordsContainer,Validators.required],
       bidAmount : ['',Validators.required],
       campaignFund : ['',Validators.required],
       status : ['',Validators.required],
       town : ['',Validators.required],
-      radius : ['',Validators.required]
+      radius : ['',Validators.required],
+      keywordscont:['']
     });
-
+    
     if(this.editData){
       this.dialogBtn = "Update";
       this.campaignForm.controls['campaignName'].setValue(this.editData.campaignName);
@@ -46,9 +52,10 @@ export class DialogComponent implements OnInit {
       this.campaignForm.controls['status'].setValue(this.editData.status);
       this.campaignForm.controls['town'].setValue(this.editData.town);
       this.campaignForm.controls['radius'].setValue(this.editData.radius);
+      this.campaignForm.controls['keywordscont'].setValue(this.editData.keywordscont);
     }
 
-    this.filteredOptions = this.campaignForm.get('keywords')!.valueChanges.pipe(
+    this.filteredOptions = this.campaignForm.get('keywordscont')!.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
@@ -59,7 +66,6 @@ export class DialogComponent implements OnInit {
         this.api.postCampaign(this.campaignForm.value)
         .subscribe({
           next:(res) =>{
-            alert("Product added succesfully")
             this.campaignForm.reset();
             this.dialogRef.close('save');
           },
@@ -76,7 +82,6 @@ export class DialogComponent implements OnInit {
     this.api.updateCampaign(this.campaignForm.value,this.editData.id)
     .subscribe({
       next:(rest) =>{
-        alert("Product updated Succesfully");
         this.campaignForm.reset();
         this.dialogRef.close('update');
       },
@@ -94,7 +99,6 @@ export class DialogComponent implements OnInit {
   }
 
   displayVal='';
-  
   input = document.getElementById('keywordID');
   ul = document.querySelector("div ul");
   tags = [""];
@@ -112,6 +116,8 @@ export class DialogComponent implements OnInit {
           tag.split(',').forEach((tag: string) => {
               this.tags.push(tag);
               this.createTag();
+              this.keywordsSetter = this.keywordsContainer + ' ' + '`' + tag + '`';
+              this.campaignForm.controls['keywords'].setValue(this.keywordsContainer);
           });
       }
   }
@@ -138,11 +144,6 @@ countTags(){
   
 }
 
-
-
-function remove(){
-  
-}
 
 
 

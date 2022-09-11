@@ -2,6 +2,28 @@ span{
   color: white;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgb(163, 163, 163); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgb(163, 163, 163); 
+}
+
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -10,21 +32,44 @@ mat-toolbar{
   background-color: rgba($color: #000000, $alpha: 0);
 }
 
+.filter{
+  color: #f6f6f6;
+  background-color: #333;
+}
+
+.container{
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-top: 15px;
+  background-color: #333;
+  color: #f6f6f6;
+}
+
+.CRUD-table{
+  background-color: #333;
+  color: #f6f6f6;
+}
+
 .add-item-button{
   font-family: 'Roboto', Arial;
-    margin: 50px;
     padding: 20px 40px;
-    font-size: 2.5em;
+    font-size: 2.2em;
     cursor: pointer;
     transition: 0.5s all;
-    width: 470px;
+    width: 380px;
     min-height: 80px;
     position: relative;
     background: transparent;
     border: 2px solid #f6f6f6;
-    color: #000000;
+    color: white;
     border-radius: 105px;
-    background-color: rgba(209,194,31,1);
+    
+}
+
+.add-item-button:hover{
+  background-color: rgba(209,194,31,1);
+  color: #000000;
+  border: 2px solid #000000;
 }
 
 table {
@@ -34,9 +79,40 @@ table {
 .mat-form-field {
   font-size: 14px;
   width: 100%;
+  border-radius: 50px;
 }
 
 td, th {
   width: 13%;
+  color: #f6f6f6;
+  text-align: center;
 }
 
+@media (max-width: 1390px){
+  
+  .add-item-button{
+      padding: 20px 20px;
+      font-size: 1.2em;
+      width: 220px;
+  }
+  td, th {
+    max-width: 6%;
+  }
+  .container{
+    margin-top: 10%;
+    overflow-x: scroll;
+    
+  }
+  .filter{
+    margin-left: 10px;
+  }
+}
+@media (max-width: 1930px){
+  
+  .add-item-button{
+    margin-top: 5%;
+      padding: 20px 20px;
+      font-size: 1.2em;
+      width: 220px;
+  }
+}

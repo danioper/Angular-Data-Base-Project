@@ -11,6 +11,7 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.scss']
 })
+
 export class CRUDComponent implements OnInit {
   displayedColumns: string[] = ['campaignName', 'keywords', 'bidAmount', 'campaignFund','status','town','radius','action'];
   dataSource!: MatTableDataSource<any>;
@@ -21,8 +22,12 @@ export class CRUDComponent implements OnInit {
   constructor(private dialog:MatDialog, private api: ApiService) { }
   
   openDialog() {
+    var resol = '35%';
+    if (window.innerWidth <= 1390) {
+      resol = '100%'
+    }
     this.dialog.open(DialogComponent, {
-      width:'30%'
+      width:resol
     }).afterClosed().subscribe(val=>{
       if(val ==='save'){
         this.getAllCapaign();
@@ -57,7 +62,6 @@ export class CRUDComponent implements OnInit {
     this.api.deleteCampaign(id)
     .subscribe({
       next:(res) =>{
-        alert("Campaign Deleted")
         this.getAllCapaign();
       },
       error:()=>{
@@ -73,8 +77,13 @@ export class CRUDComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  disable(){
+    const ele = document.getElementById('crud-button');
+    ele!.style.visibility = 'hidden';
+  }
 
   ngOnInit(): void {
+    this.disable();
     this.getAllCapaign();
   }
 

@@ -2,6 +2,23 @@ mat-form-field{
     width: 100%;
 }
 
+/*
+
+mat-label, mat-option, mat-select,span{
+  background-color: #777;
+  color: #F2F2F2;
+}
+
+.form-cont{
+  margin: -21px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 30px;
+  background-color: #777;
+  color: #F2F2F2;
+}
+*/
+
 h4{
     margin-bottom: 8px;
 }
@@ -61,3 +78,10 @@ h4{
     outline: none;
     font-size: 16px;
   }
+
+  @media (max-width: 1390px){
+    .form-cont{
+      min-width: 360px;
+      overflow: hidden;
+    }
+}

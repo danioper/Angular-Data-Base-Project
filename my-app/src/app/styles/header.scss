@@ -77,3 +77,16 @@ a:hover:after{
 .header-buttons:active{
     opacity: 0.8;
 }
+
+@media (max-width: 1390px){
+    .corner-logo{
+        height: 120px;
+    }
+    .header-right-section{
+        display: none;
+    }
+    header{
+        position: absolute;
+        height: 0px;
+    }
+}

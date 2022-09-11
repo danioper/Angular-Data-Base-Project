@@ -27,10 +27,10 @@ goToPage(pageName:string):void{
 disable(){
   const ele = document.getElementById('crud-button');
   if (ele != null) {
-      if (ele.style.visibility === 'hidden') {
-        ele.style.visibility = 'visible';
-      } else {
+      if (ele.style.visibility === 'visible') {
         ele.style.visibility = 'hidden';
+      } else {
+        ele.style.visibility = 'visible';
       }
     };
 }

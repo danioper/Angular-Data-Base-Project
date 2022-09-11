@@ -7,8 +7,51 @@
       "campaignFund": 2000000,
       "status": "On",
       "town": "Warsaw",
-      "radius": 320,
+      "radius": 680,
       "id": 1
+    },
+    {
+      "campaignName": "Small Brothers Company",
+      "keywords": "Paw Patroller",
+      "bidAmount": 12,
+      "campaignFund": 250000,
+      "status": "On",
+      "town": "Warsaw",
+      "radius": 670,
+      "id": 14
+    },
+    {
+      "campaignName": "MayCis S.P.O",
+      "keywords": "` `Paw Patroller` `Fidget Spinner` `Fidget Cube`",
+      "bidAmount": 50,
+      "campaignFund": 750000,
+      "status": "Off",
+      "town": "Cracow",
+      "radius": 108,
+      "keywordscont": "Fidget Cube",
+      "id": 15
+    },
+    {
+      "campaignName": "Lego Company",
+      "keywords": "` `Lego Star Wars` `Lego Harry Potter` `Lego Pokemon`",
+      "bidAmount": 80,
+      "campaignFund": 9300000000,
+      "status": "On",
+      "town": "Warsaw",
+      "radius": 670,
+      "keywordscont": "Lego Pokemon",
+      "id": 18
+    },
+    {
+      "campaignName": "9",
+      "keywords": "` `RyanS World`",
+      "bidAmount": 4,
+      "campaignFund": 4,
+      "status": "On",
+      "town": "Warsaw",
+      "radius": 2,
+      "keywordscont": "RyanS World",
+      "id": 19
     }
   ],
   "comments": [
