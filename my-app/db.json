@@ -52,6 +52,17 @@
       "radius": 2,
       "keywordscont": "RyanS World",
       "id": 19
+    },
+    {
+      "campaignName": "Company",
+      "keywords": "`",
+      "bidAmount": 6,
+      "campaignFund": 6,
+      "status": "On",
+      "town": "Katowice",
+      "radius": 3,
+      "keywordscont": "Paw Patroller",
+      "id": 20
     }
   ],
   "comments": [
