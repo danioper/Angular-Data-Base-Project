@@ -1,0 +1,59 @@
+.button-wrapper{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 70px;
+    font-size: 10em;
+}
+
+.crud-button{
+    font-family: 'Roboto', Arial;
+    margin: 50px;
+    padding: 20px 40px;
+    font-size: 0.4em;
+    cursor: pointer;
+    transition: 0.5s color;
+    width: 720px;
+    min-height: 80px;
+    position: relative;
+    background: transparent;
+    border: 2px solid #f6f6f6;
+    color: #f6f6f6;
+    border-radius: 105px;
+    
+}
+
+.crud-button:hover{
+    color: black;
+}
+
+.crud-button:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 160px;
+    height: 100%;
+    left: 552px;
+    top: 0;
+    background: rgba(36,160,237,0.5);
+    border-radius: 155px;
+    z-index: -1;
+    animation: ball-move-off 0.5s forwards;
+}
+
+.crud-button:hover::before{
+    animation: ball-move 0.5s forwards;
+}
+
+@keyframes ball-move{
+    0%{width: 160px; left: 552px; background: rgba(209,194,31,0.5);}
+    50%{width: 160px; left: 0; background: rgba(209,194,31,1);}
+    100%{width: 100%; left: 0; background: rgba(209,194,31,1);}
+}
+
+@keyframes ball-move-off{
+    0%{width: 100%; left: 0; background: rgba(209,194,31,0.5);}
+    50%{width: 165px; left: 0; background: rgba(209,194,31,0.5);}
+    100%{width: 165px; left: 552px; background: rgba(209,194,31,1);}
+}

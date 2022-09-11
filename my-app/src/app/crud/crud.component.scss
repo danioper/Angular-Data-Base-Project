@@ -9,3 +9,34 @@ span{
 mat-toolbar{
   background-color: rgba($color: #000000, $alpha: 0);
 }
+
+.add-item-button{
+  font-family: 'Roboto', Arial;
+    margin: 50px;
+    padding: 20px 40px;
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: 0.5s all;
+    width: 470px;
+    min-height: 80px;
+    position: relative;
+    background: transparent;
+    border: 2px solid #f6f6f6;
+    color: #000000;
+    border-radius: 105px;
+    background-color: rgba(209,194,31,1);
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 13%;
+}
+

@@ -7,7 +7,7 @@ import { DialogComponent } from './dialog/dialog.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss', './styles/header.scss','./styles/page-transition.scss']
+  styleUrls: ['./app.component.scss', './styles/header.scss','./styles/page-transition.scss','./styles/main-button.scss']
 })
 export class AppComponent {
   title = 'my-app';

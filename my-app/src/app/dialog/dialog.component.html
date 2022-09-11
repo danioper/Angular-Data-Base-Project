@@ -5,12 +5,33 @@
             <mat-label>Campaign name</mat-label>
             <input formControlName="campaignName" matInput placeholder="Name">
         </mat-form-field>
-        Keywords
-        <mat-form-field appearance="legacy">
-            <mat-label>Bid amount (dolars)</mat-label>
-            <input formControlName="bidAmount" matInput type="number" placeholder="Name">
+        <mat-form-field class="example-full-width" appearance="legacy">
+            <mat-label>Keywords</mat-label>
+            <input formControlName="keywords"
+                   type="text"
+                   #box
+                   placeholder="Limit of 3 keywords"
+                   aria-label="String"
+                   matInput
+                   formControlName="keywords"
+                   [matAutocomplete]="auto"
+                   id="keywordID"
+                   (keydown.enter)="addTag($event)"
+                   (keydown.delete)="removeBtn()">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option" getValue>
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
         </mat-form-field>
-        Campaign fund
+        <mat-form-field appearance="legacy">
+            <mat-label>Bid amount (Dolars)</mat-label>
+            <input formControlName="bidAmount" matInput type="number" placeholder="Bid amount">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>Campaign fund</mat-label>
+            <input formControlName="campaignFund" matInput type="number" placeholder="Bid amount">
+        </mat-form-field>
         <label for=""><h4>Status</h4></label>
         <mat-radio-group formControlName="status" class="radio-group">
             <mat-radio-button *ngFor="let list of BoolList" [value]="list" class="radio-button">
@@ -19,19 +40,26 @@
         </mat-radio-group>
         <mat-form-field appearance="legacy">
             <mat-label>Town</mat-label>
-            <mat-select formControlName="campaignName" placeholder="Town">
-                <mat-option value="">Cracow</mat-option>
-                <mat-option value="">Warsaw</mat-option>
-                <mat-option value="">Wroclaw</mat-option>
+            <mat-select formControlName="town" placeholder="Town">
+                <mat-option value="Cracow">Cracow</mat-option>
+                <mat-option value="Warsaw">Warsaw</mat-option>
+                <mat-option value="Wroclaw">Wroclaw</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field appearance="legacy">
             <mat-label>Radius (in kilometres)</mat-label>
-            <input formControlName="bidAmount" matInput type="number" placeholder="Name">
+            <input formControlName="radius" matInput type="number" placeholder="Radius">
         </mat-form-field>
 </form>
 </div>
 <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="warm" mat-dialog-close>Close</button>
-    <button mat-raised-button color="primary" class="save-button" (click)="addCampaign()">Save</button>
+    <button mat-raised-button color="primary" class="save-button" (click)="addCampaign()">{{dialogBtn}}</button>
+</div>
+<div class="content">
+    <ul class="header-right-content" id="id-ul">
+        <li><a href="./app.component.html" class="header-buttons" >Home</a></li>
+        <li><a class="header-buttons" href="">About</a></li>
+        <li><a class="header-buttons" href="">Contact</a></li>
+    </ul>
 </div>
