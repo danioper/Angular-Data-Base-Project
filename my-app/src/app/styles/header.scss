@@ -1,3 +1,4 @@
+/*Overall Header Style*/
 header{
     display: flex;
     flex-direction: row;
@@ -9,15 +10,16 @@ header{
     left: 0;
     z-index: 100;
 }
-
+/*Left Section*/
+.header-left-section{
+    flex: 1;
+}
 .corner-logo{
     height: 180px;
 }
 
-.header-left-section{
-    flex: 1;
-}
-
+/*Right Section*/
+/*Temporary disabled*/
 .header-right-section{
     flex: 1;
     display: flex;

@@ -20,7 +20,7 @@ export class CRUDComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private dialog:MatDialog, private api: ApiService) { }
-  
+  /*Dialog window opener*/
   openDialog() {
     var resol = '35%';
     if (window.innerWidth <= 1390) {
@@ -34,7 +34,7 @@ export class CRUDComponent implements OnInit {
       }
     })
   }
-
+  /*Load and Reload all data to table*/
   getAllCapaign(){
     this.api.getCampaign()
     .subscribe({
@@ -48,6 +48,7 @@ export class CRUDComponent implements OnInit {
       }
     })
   }
+  /*Data action options*/
   editCampaign(row:any){
     this.dialog.open(DialogComponent,{
       width:'30%',
@@ -58,6 +59,7 @@ export class CRUDComponent implements OnInit {
       }
     })
   }
+
   deleteCam(id:number){
     this.api.deleteCampaign(id)
     .subscribe({
@@ -69,6 +71,7 @@ export class CRUDComponent implements OnInit {
       }
     })
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -77,14 +80,25 @@ export class CRUDComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  /*Disable CRUD Page button */
   disable(){
     const ele = document.getElementById('crud-button');
     ele!.style.visibility = 'hidden';
+  }
+  fundUpdater(){
+    let first = this.getRandomArbitrary(1000,5000);
+    let second = this.getRandomArbitrary(1000,5000);
+  }
+
+  getRandomArbitrary(min:any, max:any) {
+    return Math.random() * (max - min) + min;
   }
 
   ngOnInit(): void {
     this.disable();
     this.getAllCapaign();
+    setInterval(() => {
+      this.fundUpdater();
+    }, 3000)
   }
-
 }

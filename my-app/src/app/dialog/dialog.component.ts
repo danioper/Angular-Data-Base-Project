@@ -14,8 +14,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 export class DialogComponent implements OnInit {
-  
-  BoolList = ["On", "Off"] /* property*/ 
+  /*Propertys*/
+  BoolList = ["On", "Off"]
   campaignForm !: FormGroup;
   dialogBtn : string = "Save"
   options: string[] = keywordProducts;
@@ -32,6 +32,7 @@ export class DialogComponent implements OnInit {
               ) { }
   
   ngOnInit() {
+    /*Add campaign values to formBuilder*/
     this.campaignForm = this.formBuilder.group({
       campaignName : ['',Validators.required],
       keywords : [this.keywordsContainer,Validators.required],
@@ -60,6 +61,7 @@ export class DialogComponent implements OnInit {
       map(value => this._filter(value || '')),
     );
   }
+  /*Adding and Updating Data*/
   addCampaign(){
     if(!this.editData){
       if(this.campaignForm.valid){
@@ -78,6 +80,7 @@ export class DialogComponent implements OnInit {
       this.updateCampaign()
     }
   }
+
   updateCampaign(){
     this.api.updateCampaign(this.campaignForm.value,this.editData.id)
     .subscribe({
@@ -91,13 +94,13 @@ export class DialogComponent implements OnInit {
     })
   }
   
-
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  /*Keywords scripts*/
   displayVal='';
   input = document.getElementById('keywordID');
   ul = document.querySelector("div ul");
@@ -122,26 +125,28 @@ export class DialogComponent implements OnInit {
       }
   }
   x.target.value = "";
-}
-createTag(){
-  this.ul?.querySelectorAll("li").forEach(li => li.remove());
-  this.tags.slice().reverse().forEach(tag =>{
-    let liTag = `<li>${tag} <i class="uit uit-multiply" onclick="remove(this, '${tag}')"></i></li>`;
-    this.ul?.insertAdjacentHTML("afterbegin", liTag);
-  })
-  this.countTags();
-}
+  }
+  createTag(){
+    this.ul?.querySelectorAll("li").forEach(li => li.remove());
+    this.tags.slice().reverse().forEach(tag =>{
+      let liTag = `<li>${tag} <i class="uit uit-multiply" onclick="remove(this, '${tag}')"></i></li>`;
+      this.ul?.insertAdjacentHTML("afterbegin", liTag);
+    })
+    this.countTags();
+  }
 
-countTags(){
-  this.input?.focus();
-}
+  countTags(){
+    this.input?.focus();
+  }
 
   removeBtn(){
     this.tags.length = 0;
     this.ul?.querySelectorAll("li").forEach(li => li.remove());
     this.countTags();
+    this.keywordsSetter = "`";
+    this.campaignForm.controls['keywords'].setValue(this.keywordsContainer);
+    alert("Keywords deleted");
   };
-  
 }
 
 

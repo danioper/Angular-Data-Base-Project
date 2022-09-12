@@ -13,17 +13,11 @@ export class AppComponent {
   title = 'my-app';
   constructor(private router:Router,
               private dialog:MatDialog){}
-
-  openDialog() {
-    this.dialog.open(DialogComponent, {
-      width:'30%'
-    });
-  }
-
+/* Navigator to another Page */
 goToPage(pageName:string):void{
   this.router.navigate([`${pageName}`]);
 }
-
+/*Disable CRUD Page button */
 disable(){
   const ele = document.getElementById('crud-button');
   if (ele != null) {

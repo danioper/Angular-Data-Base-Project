@@ -11,7 +11,7 @@
                 <input formControlName="keywordscont"
                     type="text"
                     #box
-                    placeholder="Use Enter to add keyword : max 3 keywords"
+                    placeholder="Press Enter to add keyword or Delete to clear: max 3 keywords"
                     aria-label="String"
                     matInput
                     [matAutocomplete]="auto"
@@ -67,12 +67,5 @@
     <div mat-dialog-action [align]="'end'">
         <button mat-raised-button color="warm" mat-dialog-close>Close</button>
         <button mat-raised-button color="primary" class="save-button" (click)="addCampaign()">{{dialogBtn}}</button>
-    </div>
-    <div class="content">
-        <ul class="header-right-content" id="id-ul">
-            <li><a href="./app.component.html" class="header-buttons" >Home</a></li>
-            <li><a class="header-buttons" href="">About</a></li>
-            <li><a class="header-buttons" href="">Contact</a></li>
-        </ul>
     </div>
 </div>

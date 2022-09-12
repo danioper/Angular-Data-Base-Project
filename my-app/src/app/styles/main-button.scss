@@ -1,3 +1,4 @@
+/*Main Page CRUD Button*/
 .button-wrapper{
     margin-top: 100px;
     display: flex;
@@ -57,7 +58,7 @@
     50%{width: 165px; left: 0; background: rgba(209,194,31,0.5);}
     100%{width: 165px; left: 552px; background: rgba(209,194,31,1);}
 }
-
+/*Responsive Design Section*/
 @media (max-width: 1390px){
     .button-wrapper{
         font-size: 5em;
